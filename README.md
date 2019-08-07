@@ -1,4 +1,4 @@
-# 8x8 Matrix led example to apply on a bike
+# 8x8 Matrix led example to mount on a bike
 
 ### This code provide 4 display modes:
 
