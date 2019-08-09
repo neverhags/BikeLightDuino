@@ -3,22 +3,22 @@
 // Heilner Garcia heilnergarcia@gmail.com
 
 // Define all columns and rows pins
-#define COL_1 0
-#define COL_2 1
-#define COL_3 12
-#define COL_4 13
-#define COL_5 A0
-#define COL_6 A1
-#define COL_7 A2
-#define COL_8 A3
-#define ROW_1 2
-#define ROW_2 3
-#define ROW_3 4
-#define ROW_4 5
-#define ROW_5 6
-#define ROW_6 7
-#define ROW_7 8
-#define ROW_8 9
+#define ROW_1 0
+#define ROW_2 1
+#define ROW_3 12
+#define ROW_4 13
+#define ROW_5 A0
+#define ROW_6 A1
+#define ROW_7 A2
+#define ROW_8 A3
+#define COL_1 2
+#define COL_2 3
+#define COL_3 4
+#define COL_4 5
+#define COL_5 6
+#define COL_6 7
+#define COL_7 8
+#define COL_8 9
 
 // Set interval time (microseconds)
 int intervalT = 85;
@@ -71,7 +71,7 @@ void setup() {
     pinMode(A1, OUTPUT);
     pinMode(A2, OUTPUT);
     pinMode(A3, OUTPUT);
-    SerialBT.print("Iniciando\r\n");
+    SerialBT.print("Starting...\r\n");
 }
 
 void loop() {
@@ -93,7 +93,7 @@ void loop() {
     }
 
 
-    // I know isn't the best way but was a fast way...
+    // I know isn't the best way but was a fast and clear way...
     if(voltage < 4)
     switch(inChar){
       case 76: // L

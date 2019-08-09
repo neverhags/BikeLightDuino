@@ -1,4 +1,4 @@
-# 8x8 Matrix led example to mount on a bike
+# Arduino 8x8 Matrix led example <p style="font-size:16px"> ...to mount on a bike</p>
 
 ### This code provide 4 display modes:
 
