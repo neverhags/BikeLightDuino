@@ -3,14 +3,15 @@
 // Heilner Garcia heilnergarcia@gmail.com
 
 // Define all columns and rows pins
-#define ROW_1 0
-#define ROW_2 1
-#define ROW_3 12
-#define ROW_4 13
-#define ROW_5 A0
+#define ROW_1 13
+#define ROW_2 12
+#define ROW_3 1
+#define ROW_4 0
+#define ROW_5 A2
 #define ROW_6 A1
-#define ROW_7 A2
+#define ROW_7 A0
 #define ROW_8 A3
+
 #define COL_1 2
 #define COL_2 3
 #define COL_3 4
@@ -20,12 +21,18 @@
 #define COL_7 8
 #define COL_8 9
 
+#define SENSOR_PIN A4
+
 // Set interval time (microseconds)
 int intervalT = 85;
 // Set light sensor interval time (milliseconds)
 int lightInt = 1000;
 // H by defoult
 int inChar = 72;
+// Set initial sensor reference
+float sensorMaxV = 2.5;
+// inicialize a tmp var to save the last state from inChar
+int lastInChar = 72;
 
 const byte rows[] = {
     ROW_1, ROW_2, ROW_3, ROW_4, ROW_5, ROW_6, ROW_7, ROW_8
@@ -43,8 +50,8 @@ byte HOLD2[] = {B11111111,B10000001,B10111101,B10100101,B10100101,B10111101,B100
 byte HOLD3[] = {B00000000,B01111110,B01000010,B01011010,B01011010,B01000010,B01111110,B00000000};
 
 byte LEFT1[] = {B00000000,B01111111,B01111111,B01100000,B01101111,B01101111,B01101100,B01101100};
-byte LEFT2[] = {B11111111, B11111111, B11000000, B11011111, B11011111, B11011000, B11011011, B11011011};
-byte LEFT3[] = {B11111111, B10000000, B10111111, B10111111, B10110000, B10110111, B10110111, B10110110};
+byte LEFT2[] = {B11111111,B11111111,B11000000,B11011111,B11011111,B11011000,B11011011,B11011011};
+byte LEFT3[] = {B11111111,B10000000,B10111111,B10111111,B10110000,B10110111,B10110111,B10110110};
 
 byte RIGHT1[] = {B11011011,B11011011,B00011011,B11111011,B11111011,B00000011,B11111111,B11111111};
 byte RIGHT2[] = {B01101101,B11101101,B11101101,B00001101,B11111101,B11111101,B00000001,B11111111};
@@ -56,6 +63,8 @@ String inputString = "";         // a String to hold incoming data
 bool stringComplete = false;  // whether the string is complete
 SoftwareSerial SerialBT(10, 11); // RX, TX
 bool serialOff = false;
+
+
 void setup() {
     // Open serial port
     SerialBT.begin(57600);
@@ -63,14 +72,9 @@ void setup() {
     // Set all used pins to OUTPUT
     // This is very important! If the pins are set to input
     // the display will be very dim.
-    for (byte i = 0; i <= 9 ; i++)
-      pinMode(i, OUTPUT);
-    pinMode(12, OUTPUT);
-    pinMode(13, OUTPUT);
-    pinMode(A0, OUTPUT);
-    pinMode(A1, OUTPUT);
-    pinMode(A2, OUTPUT);
-    pinMode(A3, OUTPUT);
+    for (byte i = 0; i <= 17 ; i++)
+      if(i!=10&&i!=11) // 10 & 11 needed to BT device
+        pinMode(i, OUTPUT);
     SerialBT.print("Starting...\r\n");
 }
 
@@ -82,60 +86,77 @@ void loop() {
         inChar = (int)c;
       SerialBT.println(inChar);
    }
-   int sensorValue = analogRead(A4);
+   int sensorValue = analogRead(SENSOR_PIN);
     // Convert the analog reading (which goes from 0 - 1023) to a voltage (0 - 5V):
     float voltage = sensorValue * (5.0 / 1023.0);
     // print out the value you read:
     if(millis() - sensorTimeCount > lightInt){
       SerialBT.print("v:");
-      SerialBT.println(voltage);
+      SerialBT.print(voltage);
+      SerialBT.print(" - Ref: ");
+      SerialBT.println(5-sensorMaxV); // show level required
       sensorTimeCount = millis();
     }
 
-
+    // Voltage controller: must be independent from sensorMaxV
+    switch (inChar) {
+       case 86: // V: Require more light to activate
+          if(sensorMaxV < 5) {
+            sensorMaxV = sensorMaxV+0.5;
+            inChar = lastInChar;
+          }
+        break;
+        case 66: // B: require less light to activate
+          if(sensorMaxV > 0)
+            sensorMaxV -=0.5;
+            inChar = lastInChar;
+        break;
+    }
+    if(lastInChar != inChar)
+      lastInChar = inChar;
     // I know isn't the best way but was a fast and clear way...
-    if(voltage < 4)
-    switch(inChar){
-      case 76: // L
-        if(millis() - timeCount <  intervalT) {
-          drawScreen(LEFT1);
-        } else if (millis() - timeCount <  intervalT * 2) {
-          drawScreen(LEFT2);
-          }else if (millis() - timeCount <  intervalT * 3) {
-            drawScreen(LEFT3);
-          } else {
-          // back to the start
-          timeCount = millis();
-        }
-      break;
-      case 82: // R
-        if(millis() - timeCount <  intervalT) {
-            drawScreen(RIGHT1);
-            } else if (millis() - timeCount < intervalT *  2) {
-            drawScreen(RIGHT2);
-            }else if (millis() - timeCount < intervalT *  3) {
-              drawScreen(RIGHT3);
+    if(voltage < sensorMaxV)
+      switch(inChar){
+        case 76: // L
+          if(millis() - timeCount <  intervalT) {
+            drawScreen(LEFT1);
+          } else if (millis() - timeCount <  intervalT * 2) {
+            drawScreen(LEFT2);
+            }else if (millis() - timeCount <  intervalT * 3) {
+              drawScreen(LEFT3);
             } else {
             // back to the start
             timeCount = millis();
           }
-      break;
-      case 65: // A
-        drawScreen(ALL);
-      break;
-      default: // H...
-        if(millis() - timeCount <  intervalT) {
-          drawScreen(HOLD1);
-          } else if (millis() - timeCount < intervalT *  2) {
-          drawScreen(HOLD2);
-          }else if (millis() - timeCount < intervalT *  3) {
-            drawScreen(HOLD3);
-          } else {
-          // back to the start
-          timeCount = millis();
-        }
-      break;
-    }
+        break;
+        case 82: // R
+          if(millis() - timeCount <  intervalT) {
+              drawScreen(RIGHT1);
+              } else if (millis() - timeCount < intervalT *  2) {
+              drawScreen(RIGHT2);
+              }else if (millis() - timeCount < intervalT *  3) {
+                drawScreen(RIGHT3);
+              } else {
+              // back to the start
+              timeCount = millis();
+            }
+        break;
+        case 65: // A
+          drawScreen(ALL);
+        break;
+        default: // H... 72
+          if(millis() - timeCount <  intervalT) {
+            drawScreen(HOLD1);
+            } else if (millis() - timeCount < intervalT *  2) {
+            drawScreen(HOLD2);
+            }else if (millis() - timeCount < intervalT *  3) {
+              drawScreen(HOLD3);
+            } else {
+            // back to the start
+            timeCount = millis();
+          }
+        break;
+      }
 }
 
 
