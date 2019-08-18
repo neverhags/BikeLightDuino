@@ -1,7 +1,7 @@
 # BikeLightDuino  
 <p style="font-size:12px"> 8x8 Matrix led example</p>
 
-### This code shows a series of sequences for 8x8 led matrix format designed to be used as a bicycle's backlight and serial controlled using serial: L / H / R / A / V / B / S  commands
+### This code shows a series of sequences for 8x8 led matrix format designed to be used as a bicycle's backlight. It's serial controlled using serial: L / H / R / A / V / B / S  commands
 
 <a href="https://github.com/neverhags/BikeLightDuino/blob/master/image.gif"><img alt="BikeLightDuino image" src="https://raw.githubusercontent.com/neverhags/BikeLightDuino/master/image.gif" style="width:250px" width="250"/></a>
 
@@ -10,6 +10,7 @@
 
 
 ## Requeriments:
+ * Arduino nano vX.0
  * HC-05 or HC-06 (Bluetooth device)
  * Photoresistor 10K/100K  (don't really care) - Connect to: VIN and A4 (SENSOR_PIN)
  * A resistor 10 times bigger than the photoresistor - Connect to: GND and A4 (SENSOR_PIN)
