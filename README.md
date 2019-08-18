@@ -2,8 +2,8 @@
 
 ## Requeriments:
  * HC-05 or HC-06 (Bluetooth device)
- * Photoresistor 10K/100K  (don't really care)
- * A resistor 10 times bigger than the photoresistor
+ * Photoresistor 10K/100K  (don't really care) - Connect to: VIN and A4 (SENSOR_PIN)
+ * A resistor 10 times bigger than the photoresistor - Connect to: GND and A4 (SENSOR_PIN)
  * 8 220ohm~1k Ohm (to Rows or Cols, don't use directly)
 
 
