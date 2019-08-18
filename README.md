@@ -1,4 +1,4 @@
-# BikeLightDuino  <p style="font-size:12px"> 8x8 Matrix led example</p>
+# <a src=""><ing alt="BikeLightDuino image" src="https://raw.githubusercontent.com/neverhags/BikeLightDuino/master/image.jpeg" style="width:100px"/></a>BikeLightDuino  <p style="font-size:12px"> 8x8 Matrix led example</p>
 
 ## Requeriments:
  * HC-05 or HC-06 (Bluetooth device)
