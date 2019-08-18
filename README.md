@@ -1,11 +1,12 @@
-# <a src=""><ing alt="BikeLightDuino image" src="https://raw.githubusercontent.com/neverhags/BikeLightDuino/master/image.jpeg" style="width:100px"/></a>BikeLightDuino  <p style="font-size:12px"> 8x8 Matrix led example</p>
+# BikeLightDuino  <p style="font-size:12px"> 8x8 Matrix led example</p>
+<a href="https://github.com/neverhags/BikeLightDuino/blob/master/image.jpeg"><img alt="BikeLightDuino image" src="https://raw.githubusercontent.com/neverhags/BikeLightDuino/master/image.jpeg" style="width:250px"/></a>
+
 
 ## Requeriments:
  * HC-05 or HC-06 (Bluetooth device)
  * Photoresistor 10K/100K  (don't really care) - Connect to: VIN and A4 (SENSOR_PIN)
  * A resistor 10 times bigger than the photoresistor - Connect to: GND and A4 (SENSOR_PIN)
  * 8 220ohm~1k Ohm (to Rows or Cols, don't use directly)
-
 
 ## This code provide 4 display modes:
 
