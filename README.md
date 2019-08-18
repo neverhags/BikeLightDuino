@@ -1,6 +1,6 @@
 # BikeLightDuino  <p style="font-size:12px"> 8x8 Matrix led example</p>
-<a href="https://github.com/neverhags/BikeLightDuino/blob/master/image.jpeg"><img alt="BikeLightDuino image" src="https://raw.githubusercontent.com/neverhags/BikeLightDuino/master/image.jpeg" style="width:250px" width="250"/></a>
 
+<a href="https://github.com/neverhags/BikeLightDuino/blob/master/image.jpeg"><img alt="BikeLightDuino image" src="https://raw.githubusercontent.com/neverhags/BikeLightDuino/master/image.jpeg" style="width:250px" width="250"/></a>
 
 ## Requeriments:
  * HC-05 or HC-06 (Bluetooth device)
@@ -10,7 +10,7 @@
 
 ## This code provide 4 display modes:
 
-Hold [H]: Runing 
+Hold [H]: Runing
 
 Left [L]: Turn Left
 
@@ -28,7 +28,7 @@ All comands must be sended using the serial port on pin 10 (RX) and 11 (TX), you
 
         SoftwareSerial SerialBT(10, 11); // RX, TX
 
-## Pinout: 
+## Pinout:
 
         // Define all columns and rows pins
             #define COL_1 0
