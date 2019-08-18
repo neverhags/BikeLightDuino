@@ -62,7 +62,7 @@ unsigned long sensorTimeCount = 0;    // This use micros or millis to set time r
 String inputString = "";         // a String to hold incoming data
 bool stringComplete = false;  // whether the string is complete
 SoftwareSerial SerialBT(10, 11); // RX, TX
-bool serialOff = false;
+bool serialOff = true;
 
 
 void setup() {
@@ -90,7 +90,7 @@ void loop() {
     // Convert the analog reading (which goes from 0 - 1023) to a voltage (0 - 5V):
     float voltage = sensorValue * (5.0 / 1023.0);
     // print out the value you read:
-    if(millis() - sensorTimeCount > lightInt){
+    if(millis() - sensorTimeCount > lightInt && !serialOff){
       SerialBT.print("v:");
       SerialBT.print(voltage);
       SerialBT.print(" - Ref: ");
@@ -100,6 +100,10 @@ void loop() {
 
     // Voltage controller: must be independent from sensorMaxV
     switch (inChar) {
+       case 83: // S: Activate or deactivate 
+          serialOff = !serialOff;
+          inChar = lastInChar;
+        break;
        case 86: // V: Require more light to activate
           if(sensorMaxV < 5) {
             sensorMaxV = sensorMaxV+0.5;

@@ -8,7 +8,13 @@ Left [L]: Turn Left
 
 Right [R]: Turn Right
 
-Stop [A]: ...before i die
+Stop [A]: ...before i crash/die
+
+Stop [S]: Serial On/Off
+
+Stop [V]: Needs less light to turn on
+
+Stop [B]: Needs more light to turn on
 
 All comands must be sended using the serial port on pin 10 (RX) and 11 (TX), you could connect a wifi or bluetooth to control it:
 
@@ -34,6 +40,12 @@ All comands must be sended using the serial port on pin 10 (RX) and 11 (TX), you
             #define ROW_7 8
             #define ROW_8 9
 
-This project use a photoresistor to turn on/off the matrix in pin A4:
+            #define SENSOR_PIN A4
 
-            int sensorValue = analogRead(A4);
+This project use a photoresistor in pin A4 to turn on/off the matrix it can be controled using V and B command to ajust the intensity in real:
+
+
+            int sensorValue = analogRead(SENSOR_PIN);
+
+
+*Note: i aren't use EEPROM, if you want to save the config you must programm that feature.*
