@@ -105,14 +105,13 @@ void loop() {
           inChar = lastInChar;
         break;
        case 86: // V: Require more light to activate
-          if(sensorMaxV < 5) {
+          if(sensorMaxV < 5) 
             sensorMaxV = sensorMaxV+0.5;
-            inChar = lastInChar;
-          }
+          inChar = lastInChar;
         break;
         case 66: // B: require less light to activate
           if(sensorMaxV > 0)
-            sensorMaxV -=0.5;
+              sensorMaxV -=0.5;
             inChar = lastInChar;
         break;
     }
