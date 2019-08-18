@@ -1,6 +1,13 @@
-# Arduino 8x8 Matrix led example <p style="font-size:16px"> ...to mount on a bike</p>
+# Bikeduino  <p style="font-size:16px"> 8x8 Matrix led example</p>
 
-### This code provide 4 display modes:
+## Requeriments:
+ * HC-05 or HC-06 (Bluetooth device)
+ * Photoresistor 10K/100K  (don't really care)
+ * A resistor 10 times bigger than the photoresistor
+ * 8 220ohm~1k Ohm (to Rows or Cols, don't use directly)
+
+
+## This code provide 4 display modes:
 
 Hold [H]: Runing 
 
