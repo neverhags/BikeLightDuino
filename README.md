@@ -5,8 +5,8 @@
 
 <a href="https://github.com/neverhags/BikeLightDuino/blob/master/image.gif"><img alt="BikeLightDuino image" src="https://raw.githubusercontent.com/neverhags/BikeLightDuino/master/image.gif" style="width:250px" width="250"/></a>
 
-## Youtube Video: https://www.youtube.com/watch?v=1YXSK_jz2z0
-## Thingiverse: https://www.youtube.com/watch?v=1YXSK_jz2z0
+* ### Youtube Video: https://www.youtube.com/watch?v=1YXSK_jz2z0
+* ### Thingiverse: https://www.thingiverse.com/thing:3816977
 
 
 ## Requeriments:
