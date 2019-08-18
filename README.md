@@ -1,6 +1,10 @@
-# BikeLightDuino  <p style="font-size:12px"> 8x8 Matrix led example</p>
+# BikeLightDuino  
+<p style="font-size:12px"> 8x8 Matrix led example</p>
 
-<a href="https://github.com/neverhags/BikeLightDuino/blob/master/image.jpeg"><img alt="BikeLightDuino image" src="https://raw.githubusercontent.com/neverhags/BikeLightDuino/master/image.jpeg" style="width:250px" width="250"/></a>
+<a href="https://github.com/neverhags/BikeLightDuino/blob/master/image.gif"><img alt="BikeLightDuino image" src="https://raw.githubusercontent.com/neverhags/BikeLightDuino/master/image.gif" style="width:250px" width="250"/></a>
+
+## Youtube Video: https://www.youtube.com/watch?v=1YXSK_jz2z0
+
 
 ## Requeriments:
  * HC-05 or HC-06 (Bluetooth device)
