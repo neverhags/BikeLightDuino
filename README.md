@@ -1,4 +1,4 @@
-# BikeLIigtDuino  <p style="font-size:12px"> 8x8 Matrix led example</p>
+# BikeLightDuino  <p style="font-size:12px"> 8x8 Matrix led example</p>
 
 ## Requeriments:
  * HC-05 or HC-06 (Bluetooth device)
