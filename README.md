@@ -1,9 +1,12 @@
 # BikeLightDuino  
 <p style="font-size:12px"> 8x8 Matrix led example</p>
 
+### This code shows a series of sequences for 8x8 led matrix format designed to be used as a bicycle's backlight and serial controlled using serial: L / H / R / A / V / B / S  commands
+
 <a href="https://github.com/neverhags/BikeLightDuino/blob/master/image.gif"><img alt="BikeLightDuino image" src="https://raw.githubusercontent.com/neverhags/BikeLightDuino/master/image.gif" style="width:250px" width="250"/></a>
 
 ## Youtube Video: https://www.youtube.com/watch?v=1YXSK_jz2z0
+## Thingiverse: https://www.youtube.com/watch?v=1YXSK_jz2z0
 
 
 ## Requeriments:
@@ -63,3 +66,5 @@ This project use a photoresistor in pin A4 to turn on/off the matrix it can be c
 
 
 *Note: i aren't use EEPROM, if you want to save the config you must programm that feature.*
+
+*Note2: You need to send all command without any kind of new line*
