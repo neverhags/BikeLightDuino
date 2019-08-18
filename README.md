@@ -10,19 +10,21 @@
 
 ## This code provide 4 display modes:
 
-Hold [H]: Runing
+* Hold [H]: Runing
 
-Left [L]: Turn Left
+* Left [L]: Turn Left
 
-Right [R]: Turn Right
+* Right [R]: Turn Right
 
-Stop [A]: ...before i crash/die
+* Stop [A]: ...before i crash/die
 
-Stop [S]: Serial On/Off
+## Other features:
 
-Stop [V]: Needs less light to turn on
+* [S]: Serial On/Off
 
-Stop [B]: Needs more light to turn on
+* [V]: Needs less light to turn on
+
+* [B]: Needs more light to turn on
 
 All comands must be sended using the serial port on pin 10 (RX) and 11 (TX), you could connect a wifi or bluetooth to control it:
 
