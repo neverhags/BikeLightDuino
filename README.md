@@ -11,6 +11,7 @@
 
 ## Requeriments:
  * Arduino nano vX.0
+ * 8x8 Matrix Led
  * HC-05 or HC-06 (Bluetooth device)
  * Photoresistor 10K/100K  (don't really care) - Connect to: VIN and A4 (SENSOR_PIN)
  * A resistor 10 times bigger than the photoresistor - Connect to: GND and A4 (SENSOR_PIN)
