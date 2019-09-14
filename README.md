@@ -1,4 +1,4 @@
-# BikeLightDuino  
+# <img src="https://media.giphy.com/media/cmI2iQXwq8zB54LpEv/giphy.gif" width="50"> BikeLightDuino  
 <p style="font-size:12px"> 8x8 Matrix led example</p>
 
 ### This code shows a series of sequences for 8x8 led matrix format designed to be used as a bicycle's backlight. It's serial controlled using serial: L / H / R / A / V / B / S  commands
