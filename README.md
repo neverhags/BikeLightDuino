@@ -1,7 +1,7 @@
-# <img src="https://media.giphy.com/media/cmI2iQXwq8zB54LpEv/giphy.gif" width="50"> BikeLightDuino  
+# <img src="https://media.giphy.com/media/JTbmYYFBekAiCeVBmO/giphy.gif" width="50"> BikeLightDuino  
 <p style="font-size:12px"> 8x8 Matrix led example</p>
 
-### This code shows a series of sequences for 8x8 led matrix format designed to be used as a bicycle's backlight. It's serial controlled using serial: L / H / R / A / V / B / S  commands
+### This code shows a series of sequences for 8x8 led matrix format designed to be used as a bicycle's backlight. It's serial controlled using: L / H / R / A / V / B / S  commands
 
 <a href="https://github.com/neverhags/BikeLightDuino/blob/master/image.gif"><img alt="BikeLightDuino image" src="https://raw.githubusercontent.com/neverhags/BikeLightDuino/master/image.gif" style="width:250px" width="250"/></a>
 
